@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 18th Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,700&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --night-bg: #0e050c; 
+            --deep-plum: #1c0512;
+            --electric-pink: #ff6eb4; 
+            --neon-pink: #ff85b3;
+            --soft-glow: rgba(255, 133, 179, 0.4);
+            --bubble-silk: rgba(255, 192, 203, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, var(--deep-plum) 0%, var(--night-bg) 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fce4ec;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .card {
+            background: rgba(14, 5, 12, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px;
+            border-radius: 40px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 133, 179, 0.3);
+            max-width: 450px;
+            text-align: center;
+            z-index: 10;
+            border: 1px solid rgba(255, 133, 179, 0.1);
+            margin: 20px;
+            animation: fadeIn 3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic;
+            font-size: 2.2rem; 
+            margin-bottom: 22px; 
+            color: var(--neon-pink);
+            text-shadow: 0 0 15px var(--soft-glow);
+            text-transform: lowercase;
+        }
+
+        p { 
+            font-size: 0.8rem; 
+            line-height: 1.8; 
+            margin-bottom: 30px; 
+            font-weight: 300;
+            color: #ffeff5;
+            letter-spacing: 0.3px;
+        }
+        
+        .instructions {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            background: rgba(255, 255, 255, 0.015);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 133, 179, 0.08);
+            color: #ffdae9;
+            line-height: 2.5;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Define shared animation for heartbeat pulse */
+        @keyframes pulseGlowHeartbeat {
+            0% { box-shadow: 0 0 10px rgba(255, 110, 180, 0.2); }
+            20% { box-shadow: 0 0 var(--intensity) rgba(255, 110, 180, 0.6); } /* Initial pulse */
+            30% { box-shadow: 0 0 calc(var(--intensity) / 1.5) rgba(255, 110, 180, 0.3); } /* Echo pulse */
+            40% { box-shadow: 0 0 calc(var(--intensity) / 1.2) rgba(255, 110, 180, 0.5); }
+            100% { box-shadow: 0 0 10px rgba(255, 110, 180, 0.2); }
+        }
+
+        /* INTENSE Pulsing Flipbook Button */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff85b3 0%, #d81b60 100%);
+            color: white !important;
+            padding: 18px 45px;
+            border-radius: 60px;
+            margin-bottom: 25px;
+            text-decoration: none !important;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            font-weight: 500;
+            transition: all 0.5s ease;
+            position: relative;
+            
+            /* High intensity pulse */
+            --intensity: 25px; 
+            animation: pulseGlowHeartbeat 4s infinite ease-in-out;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: brightness(1.1);
+            animation: none; /* Stop pulsing on hover */
+            box-shadow: 0 15px 40px rgba(216, 27, 96, 0.9);
+        }
+
+        /* PULSING PDF Download Button */
+        .pdf-download {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 25px;
+            background: rgba(255, 133, 179, 0.03);
+            border: 1px solid var(--neon-pink);
+            border-radius: 15px;
+            color: var(--neon-pink) !important;
+            text-decoration: none !important;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            
+            /* Subtle intensity pulse */
+            --intensity: 15px; 
+            animation: pulseGlowHeartbeat 4s infinite ease-in-out 1s; /* Delayed 1s for rhythm */
+        }
+
+        .pdf-download:hover {
+            background: rgba(255, 133, 179, 0.15);
+            transform: scale(1.03);
+            color: #fff !important;
+            border-color: #fff;
+            animation: none;
+            box-shadow: 0 0 15px rgba(255, 133, 179, 0.8);
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -150px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, var(--bubble-silk) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), 0 0 15px var(--soft-glow);
+            animation: floatUp 10s infinite ease-in;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            width: 1px;
+            height: 18px;
+            background: rgba(255, 133, 179, 0.25);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.5; }
+            80% { opacity: 0.5; }
+            100% { transform: translateY(-125vh) rotate(10deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Generate stars
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            document.body.appendChild(star);
+        }
+
+        function createBubble() {
+            const bubble = document.createElement('div');
+            const size = Math.random() * 45 + 25 + "px";
+            bubble.className = 'bubble';
+            bubble.style.width = size;
+            bubble.style.height = (parseInt(size) * 1.2) + "px"; 
+            bubble.style.left = Math.random() * 100 + "%";
+            bubble.style.animationDuration = Math.random() * 6 + 9 + "s";
+            document.body.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 15000);
+        }
+        setInterval(createBubble, 700);
+    </script>
+
+    <div class="card">
+        <h1>happy 18th birthday</h1>
+        <p>i’m genuinely so shy on sending this to you, which is why it’s coming a little late. weirdly enough, i ended up spending 18 hours making this, 18 hours for your 18 years. it feels a bit vulnerable to share, but i really wanted you to have this. open it whenever you have a quiet moment.</p>
+        
+        <a href="https://heyzine.com/flip-book/81f25ddce9.html" class="btn" target="_blank">OPEN YOUR FLIPBOOK</a>
+
+        <div class="instructions">
+            <span style="display: block; margin-bottom: 12px; color: var(--neon-pink); font-weight: 500;">how to view:</span>
+            best viewed in landscape mode.<br>
+            enter the secret password to unlock.<br>
+            zoom in, every little detail is for you!
+        </div>
+
+        <span style="font-size: 0.65rem; color: #a08090; display: block; margin-bottom: 8px; font-family: 'Cinzel', serif;">A keepsake for later:</span>
+        <a href="https://drive.google.com/drive/folders/14qFA2jiZsWuRXutDFgDX8_VAMH9VMte3" class="pdf-download" target="_blank">
+            📥 DOWNLOAD PDF VERSION
+        </a>
+    </div>
+
+</body>
